@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MealKit 다운로드</title>
+  <meta name="description" content="MealKit Manager, Editor, 도구를 Windows · Linux · macOS용으로 내려받으세요. 무료, MIT.">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><img src="assets/icon.png" alt="" width="28" height="28"> MealKit</a>
+    <nav>
+      <a href="https://github.com/MealKit-Engine" target="_blank" rel="noopener">GitHub</a>
+      <button id="lang" class="ghost" type="button">English</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="badge" data-i18n="beta">베타 (v0.x)</span>
+      <h1 data-i18n="heroTitle">MealKit 내려받기</h1>
+      <p class="lead" data-i18n="heroLead">가벼운 3D 멀티플레이 게임 엔진과 도구 모음. 무료, MIT 라이선스.</p>
+
+      <div class="hero-cta">
+        <a id="hero-btn" class="btn primary big" href="#manager">
+          <span id="hero-btn-label">MealKit Manager</span>
+          <small id="hero-btn-sub"></small>
+        </a>
+        <p id="detected" class="muted"></p>
+      </div>
+    </section>
+
+    <section class="os-switch" aria-label="OS">
+      <div class="seg" role="tablist" id="os-tabs">
+        <button role="tab" data-os="windows" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7.1L3 18.5zM11.5 12.5H21V21l-9.5-1.3z"/></svg>Windows</button>
+        <button role="tab" data-os="linux" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.2 0-3.6 1.9-3.6 4.6 0 1.3.3 2.3.1 3.3-.3 1.4-2.5 3.4-3.2 5.9-.4 1.5.2 2.3.9 2.6-.1.9.3 1.7 1.4 2 1.3.4 2.6-.4 3.4-.4h2c.8 0 2.1.8 3.4.4 1.1-.3 1.5-1.1 1.4-2 .7-.3 1.3-1.1.9-2.6-.7-2.5-2.9-4.5-3.2-5.9-.2-1 .1-2 .1-3.3C15.6 3.9 14.2 2 12 2zm-1.3 4.2c.4 0 .7.5.7 1.1 0 .3-.1.5-.2.7l-.5-.2c.1-.1.1-.3.1-.5 0-.3-.1-.5-.2-.5s-.3.3-.3.6c0 .1 0 .2.1.3l-.5.2c-.1-.2-.2-.4-.2-.7.1-.5.5-1 1-1zm2.6 0c.5 0 .9.5.9 1.1 0 .3-.1.5-.2.7l-.5-.2c.1-.1.1-.3.1-.4 0-.3-.2-.6-.4-.6-.2 0-.3.3-.3.6v.2l-.5-.2v-.1c0-.6.4-1.1.9-1.1zM12 8.6c.6 0 1.6.6 1.6.9s-.8.9-1.6.9-1.6-.6-1.6-.9.9-.9 1.6-.9z"/></svg>Linux</button>
+        <button role="tab" data-os="macos" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.3 1.3-2.7 1.3-2.7s-2.5-1-2.4-4zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>macOS</button>
+      </div>
+      <p id="os-note" class="muted small"></p>
+    </section>
+
+    <div id="notice" class="notice" hidden></div>
+
+    <section id="manager" class="card feature">
+      <img src="assets/icon.png" alt="" width="64" height="64">
+      <div class="feature-body">
+        <h2>MealKit Manager <span class="tag" data-i18n="recommended">추천</span></h2>
+        <p data-i18n="managerDesc">프로젝트, 엔진 버전, MealKit 도구를 한 창에서 관리하는 허브 앱입니다. 설치 후 Manager에서 엔진(에디터)과 도구를 바로 설치할 수 있습니다.</p>
+        <div class="dl" id="dl-manager"></div>
+      </div>
+    </section>
+
+    <section id="editor">
+      <h2 class="section-title" data-i18n="editorTitle">MealKit Editor (엔진)</h2>
+      <p class="muted" data-i18n="editorDesc">엔진과 범용 에디터가 함께 든 패키지입니다. 엔진 MINOR마다 최신 패치 하나만 제공합니다. 보통은 Manager에서 설치하면 됩니다.</p>
+      <div class="list" id="dl-engines"></div>
+    </section>
+
+    <section id="tools">
+      <h2 class="section-title" data-i18n="toolsTitle">도구</h2>
+      <p class="muted" data-i18n="toolsDesc">역할별 작업 도구입니다. 맞는 엔진 버전과 함께 쓰세요. Manager의 Tools 페이지에서도 설치·업데이트할 수 있습니다.</p>
+      <div class="grid" id="dl-tools"></div>
+    </section>
+
+    <section id="install" class="card">
+      <h2 class="section-title" data-i18n="installTitle">설치 방법</h2>
+      <ol id="install-steps"></ol>
+      <h3 data-i18n="verifyTitle">다운로드 확인 (SHA-256)</h3>
+      <p class="muted small" data-i18n="verifyDesc">받은 파일의 해시가 위에 표시된 SHA-256과 같은지 확인하세요.</p>
+      <pre><code id="verify-cmd"></code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p><span data-i18n="footer">MealKit은 무료이며 코드는 MIT 라이선스입니다.</span>
+      · <a href="https://github.com/MealKit-Engine/MealKit" target="_blank" rel="noopener" data-i18n="source">소스에서 빌드하기</a></p>
+  </footer>
+</body>
+</html>
